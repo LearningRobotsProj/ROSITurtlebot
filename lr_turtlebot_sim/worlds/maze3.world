@@ -1,0 +1,173 @@
+<!-- lr_turtlebot_sim/worlds/maze3.world -->
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="maze3">
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    
+    <!-- Maze 3: "The Final Exam" - Complex -->
+    
+    <!-- Outer walls -->
+    <model name="outer_north">
+      <pose>0 5 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>12 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>12 0.1 0.5</size></box></geometry>
+          <material><ambient>0.8 0.2 0.2 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    
+    <model name="outer_south">
+      <pose>0 -5 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>12 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>12 0.1 0.5</size></box></geometry>
+          <material><ambient>0.8 0.2 0.2 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    
+    <model name="outer_east">
+      <pose>5 0 0.25 0 0 1.5708</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>10 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>10 0.1 0.5</size></box></geometry>
+          <material><ambient>0.8 0.2 0.2 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    
+    <model name="outer_west">
+      <pose>-5 0 0.25 0 0 1.5708</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>10 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>10 0.1 0.5</size></box></geometry>
+          <material><ambient>0.8 0.2 0.2 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    
+    <!-- Complex inner maze -->
+    
+    <!-- Zig-zag pattern -->
+    <model name="zigzag_1">
+      <pose>3 0 0.25 0 0 0.7854</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>4 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>4 0.1 0.5</size></box></geometry>
+          <material><ambient>0.6 0.3 0.1 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    
+    <model name="zigzag_2">
+      <pose>-3 0 0.25 0 0 -0.7854</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>4 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>4 0.1 0.5</size></box></geometry>
+          <material><ambient>0.6 0.3 0.1 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    
+    <!-- Narrow corridor -->
+    <model name="corridor_1">
+      <pose>0 2.5 0.25 0 0 1.5708</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1 0.1 0.5</size></box></geometry>
+          <material><ambient>0.4 0.4 0.2 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    
+    <model name="corridor_2">
+      <pose>0 -2.5 0.25 0 0 1.5708</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1 0.1 0.5</size></box></geometry>
+          <material><ambient>0.4 0.4 0.2 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    
+    <!-- Choke points -->
+    <model name="choke_1">
+      <pose>2 3 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.8 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.8 0.1 0.5</size></box></geometry>
+          <material><ambient>0.3 0.1 0.6 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    
+    <model name="choke_2">
+      <pose>-2 -3 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.8 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.8 0.1 0.5</size></box></geometry>
+          <material><ambient>0.3 0.1 0.6 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    
+    <!-- Goal (hard to reach) -->
+    <model name="goal">
+      <pose>4.5 -4.5 0.01 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry><cylinder><radius>0.3</radius><length>0.02</length></cylinder></geometry>
+          <material><ambient>0.2 0.8 0.2 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>

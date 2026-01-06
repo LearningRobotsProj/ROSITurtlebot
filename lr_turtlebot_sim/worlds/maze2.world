@@ -1,0 +1,156 @@
+<!-- lr_turtlebot_sim/worlds/maze2.world -->
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="maze2">
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    
+    <!-- Maze 2: "The Middle School Maze" - Grid-like -->
+    
+    <!-- Outer walls -->
+    <model name="outer_north">
+      <pose>0 4.5 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>10 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>10 0.1 0.5</size></box></geometry>
+          <material><ambient>0.8 0.2 0.2 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    
+    <model name="outer_south">
+      <pose>0 -4.5 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>10 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>10 0.1 0.5</size></box></geometry>
+          <material><ambient>0.8 0.2 0.2 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    
+    <model name="outer_east">
+      <pose>4.5 0 0.25 0 0 1.5708</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>9 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>9 0.1 0.5</size></box></geometry>
+          <material><ambient>0.8 0.2 0.2 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    
+    <model name="outer_west">
+      <pose>-4.5 0 0.25 0 0 1.5708</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>9 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>9 0.1 0.5</size></box></geometry>
+          <material><ambient>0.8 0.2 0.2 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    
+    <!-- Grid walls -->
+    <model name="grid_1">
+      <pose>0 2 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>6 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>6 0.1 0.5</size></box></geometry>
+          <material><ambient>0.6 0.3 0.1 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    
+    <model name="grid_2">
+      <pose>0 -2 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>6 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>6 0.1 0.5</size></box></geometry>
+          <material><ambient>0.6 0.3 0.1 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    
+    <model name="grid_3">
+      <pose>2 0 0.25 0 0 1.5708</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>4 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>4 0.1 0.5</size></box></geometry>
+          <material><ambient>0.6 0.3 0.1 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    
+    <model name="grid_4">
+      <pose>-2 0 0.25 0 0 1.5708</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>4 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>4 0.1 0.5</size></box></geometry>
+          <material><ambient>0.6 0.3 0.1 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    
+    <!-- Dead end -->
+    <model name="dead_end">
+      <pose>3 -3 0.25 0 0 1.5708</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>2 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>2 0.1 0.5</size></box></geometry>
+          <material><ambient>0.5 0.2 0.5 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    
+    <!-- Goal -->
+    <model name="goal">
+      <pose>-3.5 -3.5 0.01 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry><cylinder><radius>0.3</radius><length>0.02</length></cylinder></geometry>
+          <material><ambient>0.2 0.8 0.2 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>
