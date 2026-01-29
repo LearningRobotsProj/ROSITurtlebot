@@ -1,97 +1,219 @@
-<!-- lr_turtlebot_sim/worlds/maze1.world -->
 <?xml version="1.0"?>
 <sdf version="1.6">
   <world name="maze1">
-    <include>
-      <uri>model://sun</uri>
-    </include>
-    
-    <include>
-      <uri>model://ground_plane</uri>
-    </include>
-    
-    <!-- Maze 1: "Baby Steps" - Simple corridors -->
+
+    <!-- Required ROS plugin for set_pose -->
+    <plugin
+      filename="libgz-sim-ros-pose-publisher-system.so"
+      name="gz_sim_ros_pose_publisher"/>
+
+    <!-- Basic lighting -->
+    <light name="sun" type="directional">
+      <pose>0 0 10 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.1 -1</direction>
+    </light>
+
+    <!-- Ground plane -->
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>200 200</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>200 200</size>
+            </plane>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Outer walls -->
     <model name="wall_north">
       <pose>0 4 0.25 0 0 0</pose>
       <static>true</static>
       <link name="link">
         <collision name="collision">
-          <geometry><box><size>10 0.1 0.5</size></box></geometry>
+          <geometry>
+            <box>
+              <size>10 0.4 0.5</size>
+            </box>
+          </geometry>
         </collision>
         <visual name="visual">
-          <geometry><box><size>10 0.1 0.5</size></box></geometry>
-          <material><ambient>0.8 0.2 0.2 1</ambient></material>
+          <geometry>
+            <box>
+              <size>10 0.4 0.5</size>
+            </box>
+          </geometry>
         </visual>
       </link>
     </model>
-    
+
     <model name="wall_south">
       <pose>0 -4 0.25 0 0 0</pose>
       <static>true</static>
       <link name="link">
         <collision name="collision">
-          <geometry><box><size>10 0.1 0.5</size></box></geometry>
+          <geometry>
+            <box>
+              <size>10 0.4 0.5</size>
+            </box>
+          </geometry>
         </collision>
         <visual name="visual">
-          <geometry><box><size>10 0.1 0.5</size></box></geometry>
-          <material><ambient>0.8 0.2 0.2 1</ambient></material>
+          <geometry>
+            <box>
+              <size>10 0.4 0.5</size>
+            </box>
+          </geometry>
         </visual>
       </link>
     </model>
-    
+
     <model name="wall_east">
-      <pose>4.5 0 0.25 0 0 1.5708</pose>
+      <pose>5 0 0.25 0 0 1.5708</pose>
       <static>true</static>
       <link name="link">
         <collision name="collision">
-          <geometry><box><size>8 0.1 0.5</size></box></geometry>
+          <geometry>
+            <box>
+              <size>8 0.4 0.5</size>
+            </box>
+          </geometry>
         </collision>
         <visual name="visual">
-          <geometry><box><size>8 0.1 0.5</size></box></geometry>
-          <material><ambient>0.8 0.2 0.2 1</ambient></material>
+          <geometry>
+            <box>
+              <size>8 0.4 0.5</size>
+            </box>
+          </geometry>
         </visual>
       </link>
     </model>
-    
+
     <model name="wall_west">
-      <pose>-4.5 0 0.25 0 0 1.5708</pose>
+      <pose>-5 0 0.25 0 0 1.5708</pose>
       <static>true</static>
       <link name="link">
         <collision name="collision">
-          <geometry><box><size>8 0.1 0.5</size></box></geometry>
+          <geometry>
+            <box>
+              <size>8 0.4 0.5</size>
+            </box>
+          </geometry>
         </collision>
         <visual name="visual">
-          <geometry><box><size>8 0.1 0.5</size></box></geometry>
-          <material><ambient>0.8 0.2 0.2 1</ambient></material>
+          <geometry>
+            <box>
+              <size>8 0.4 0.5</size>
+            </box>
+          </geometry>
         </visual>
       </link>
     </model>
-    
-    <!-- Simple corridor divider -->
-    <model name="divider">
-      <pose>0 0 0.25 0 0 0</pose>
+
+    <!-- Internal walls -->
+    <model name="wall_inner_1">
+      <pose>-2 0 0.25 0 0 0</pose>
       <static>true</static>
       <link name="link">
         <collision name="collision">
-          <geometry><box><size>3 0.1 0.5</size></box></geometry>
+          <geometry>
+            <box>
+              <size>6 0.4 0.5</size>
+            </box>
+          </geometry>
         </collision>
         <visual name="visual">
-          <geometry><box><size>3 0.1 0.5</size></box></geometry>
-          <material><ambient>0.6 0.3 0.1 1</ambient></material>
+          <geometry>
+            <box>
+              <size>6 0.4 0.5</size>
+            </box>
+          </geometry>
         </visual>
       </link>
     </model>
-    
+
+    <model name="wall_inner_2">
+      <pose>1 1.5 0.25 0 0 1.5708</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>5 0.4 0.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>5 0.4 0.5</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_inner_3">
+      <pose>2.5 -1.5 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>3 0.4 0.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>3 0.4 0.5</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
     <!-- Goal -->
     <model name="goal">
       <pose>3.5 3.5 0.01 0 0 0</pose>
       <static>true</static>
       <link name="link">
         <visual name="visual">
-          <geometry><cylinder><radius>0.3</radius><length>0.02</length></cylinder></geometry>
-          <material><ambient>0.2 0.8 0.2 1</ambient></material>
+          <geometry>
+            <cylinder>
+              <radius>0.3</radius>
+              <length>0.02</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.2 0.8 0.2 1</ambient>
+          </material>
         </visual>
       </link>
     </model>
+
   </world>
 </sdf>

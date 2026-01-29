@@ -5,7 +5,7 @@
   <name>lr_ppo</name>
   <version>1.0.0</version>
   <description>PPO-based maze navigation for TurtleBot3</description>
-  <maintainer email="team@example.com">ROSI Team</maintainer>
+  <maintainer email="team@lecnam.net">ROSI Team</maintainer>
   <license>Apache-2.0</license>
 
   <depend>rclpy</depend>

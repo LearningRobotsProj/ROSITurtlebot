@@ -5,7 +5,7 @@
   <name>lr_turtlebot_sim</name>
   <version>1.0.0</version>
   <description>TurtleBot3 maze simulation for ROSI PPO project</description>
-  <maintainer email="team@example.com">ROSI Team</maintainer>
+  <maintainer email="team@lecnam.net">ROSI Team</maintainer>
   <license>Apache-2.0</license>
 
   <depend>rclpy</depend>

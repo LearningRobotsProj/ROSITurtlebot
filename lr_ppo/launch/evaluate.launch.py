@@ -8,9 +8,9 @@ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
-    maze_arg = 'maze1'  # Change to maze2, maze3 for different mazes
+    maze_arg = 'maze1'  
     
-    # Include maze simulation
+    #  maze simulation
     maze_simulation = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             PathJoinSubstitution([
